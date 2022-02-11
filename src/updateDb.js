@@ -11,8 +11,8 @@ readFiles('./rawDb').then((files) => {
   allMessages = allMessages
     .sort((a, b) => a.id - b.id)
     .map((message) => message.content)
-    .filter((message) => message !== '' && message.length > 7)
-    .map((message) => message.replaceAll('@', '').replaceAll('RobTopGames', 'RobTop').replaceAll('Deleted User', '').slice(0, 280));
+    .filter((message) => message !== '' && message.length > 7 && message.length < 200)
+    .map((message) => message.replaceAll('@', '').replaceAll('RobTopGames', 'RobTop').replaceAll('Deleted User', ''));
 
   fs.writeFileSync('./db/messages.json', JSON.stringify(allMessages));
 });
