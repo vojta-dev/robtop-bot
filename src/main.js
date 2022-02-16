@@ -9,6 +9,9 @@ const CRON_TIME = '0 * * * *';
 
 const app = express();
 
+// display RobTop Bot as the BASH title
+process.stdout.write('\x1B]0;RobTop Bot\x07');
+
 cron.schedule(CRON_TIME, () => {
   log('Running cron');
   tweet();
